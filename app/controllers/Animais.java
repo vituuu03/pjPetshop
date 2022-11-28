@@ -25,7 +25,22 @@ public class Animais extends Controller{
     public static void listar (){
         List <Animal> animaisList = Animal.findAll();
         render(animaisList);
-  }
+  
+        String termo = params.get("termo");
+		
+		List<Animal> animaisList = Collections.EMPTY_LIST;
+		if (termo == null || termo.isEmpty()) {
+			animaisList = Animal.findAll();
+		} else {
+			animaisList = Animal.find("(lower(nome) like ?1 OR tipoAnimal like ?2)",
+					"%" + termo.toLowerCase() + "%",
+					"%" + termo.toLowerCase() + "%").fetch();
+		}
+		render(animaisList, termo);
+  
+  
+  
+    }
     public static void detalhar(Long id) {
 		Animal a = Animal.findById(id);
 		render(a);
