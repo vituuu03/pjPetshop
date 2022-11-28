@@ -1,0 +1,12 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Detalhamento do Animal ${a.nome}</h1>
+
+<p># ${a.id}</p>
+<p>Nome: ${a.nome}</p>
+<p>Peso: ${a.peso}</p>
+<p>Data de nascimento: ${a.dataNascimento}</p>
+<p>Tipo do Animal: ${a.tipoAnimal}</p>
+
+<a href="@{Animais.listar}">Listagem</a>
