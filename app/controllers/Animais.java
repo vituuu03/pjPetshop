@@ -23,9 +23,6 @@ public class Animais extends Controller{
         
     }
     public static void listar (){
-        List <Animal> animaisList = Animal.findAll();
-        render(animaisList);
-  
         String termo = params.get("termo");
 		
 		List<Animal> animaisList = Collections.EMPTY_LIST;

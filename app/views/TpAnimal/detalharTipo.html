@@ -1,9 +1,18 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-<h1>Listagem de Aluno</h1>
+<h1>Detalhamento do tipo ${a.nome}</h1>
 
-<form action="@{TpAnimal.listar}">
+<p>Nome: ${a.nome}</p>
+<p>Peso: ${a.descricao}</p>
+
+<br/>
+<br/>
+<br/>
+
+<h1>Animais do tipo</h1>
+
+<form action="@{TpAnimal.detalharTipo}">
 	<div class="row">
 		<div class="col-12">
 			<label class="form-label">Termo de busca:</label>
@@ -46,3 +55,7 @@
 
 
 <a href="@{TpAnimal.form}" class="btn btn-primary">Novo Tipo de Animal</a>
+
+
+
+<a href="@{TpAnimal.listar}">Listagem de tipos de animais</a>
