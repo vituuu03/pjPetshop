@@ -20,9 +20,12 @@ public class Animal extends Model{
 
 	@ManyToOne
 	public TipoAnimal tipoAnimal;
-	public void remove(long id) {
+	
+	public Animal() {
+		status = Status.ATIVO;
 	}
-    public void delete(long id) {
-    }
+
+	@Enumerated(EnumType.STRING)
+	public Status status;
 	
 }

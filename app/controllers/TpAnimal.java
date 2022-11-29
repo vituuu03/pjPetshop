@@ -65,8 +65,8 @@ public class TpAnimal extends Controller{
                                 "%" + termo.toLowerCase() + "%",
                                 "%" + termo.toLowerCase() + "%").fetch();
                     }
-                    
                     render(a, tpsAnimal);
+
 				}
                 
             }

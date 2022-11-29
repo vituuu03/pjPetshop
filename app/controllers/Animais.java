@@ -16,18 +16,18 @@ public class Animais extends Controller{
             listar();
 	}
     
-    public static void remover (long id){
-        Animal animalDelete = Animal.findById(id);
-        animalDelete.delete();
-       listar();
-        
-    }
+    public static void remover(Long id) {
+		Animal aniRemover = Animal.findById(id);
+		aniRemover.status = Status.INATIVO;
+		aniRemover.save();
+		listar();
+	}
     public static void listar (){
         String termo = params.get("termo");
 		
 		List<Animal> animaisList = Collections.EMPTY_LIST;
 		if (termo == null || termo.isEmpty()) {
-			animaisList = Animal.findAll();
+			animaisList = Animal.find("status = ?1", Status.ATIVO).fetch();
 		} else {
 			animaisList = Animal.find("(lower(nome) like ?1 OR tipoAnimal like ?2)",
 					"%" + termo.toLowerCase() + "%",
