@@ -49,8 +49,8 @@ public class Animais extends Controller{
 
     public static void editar(Long id) {
 		List<TipoAnimal> tipos = TipoAnimal.findAll();
-		Animal animal = Animal.findById(id);
-		renderTemplate("Animais/form.html", animal, tipos);
+		Animal animalEdit = Animal.findById(id);
+		renderTemplate("Animais/form.html", animalEdit, tipos);
 	}
 
 }
