@@ -15,9 +15,13 @@
 	<select name="a.tipoAnimal.id" class="form-select">
 		#{list items:tpAnimais, as:'t'}
 		<!--if se  t ? 'editar':'Cadastrar-->
-			<option value="${t.id}" ${t.id == Animal?.tipoAnimal?.id ? 'selected' : ''}>${t.descricao}</option>
+		
+			<option value="${t.id}" ${t.id == Animal?.TipoAnimal?.id ? 'selected' : ''}>${t.descricao}</option>
+			
+			
 		#{/list}
 	</select>
+	
 	<br />
 	
 	<label class="form-label">Data:</label>
