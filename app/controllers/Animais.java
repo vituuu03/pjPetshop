@@ -3,6 +3,9 @@ import play.*;
 import play.mvc.*;
 import models.TipoAnimal;
 import java.util.*;
+import models.Animal;
+import models.TipoAnimal;
+
 
 import models.*;
 public class Animais extends Controller{
@@ -29,9 +32,10 @@ public class Animais extends Controller{
 		if (termo == null || termo.isEmpty()) {
 			animaisList = Animal.find("status = ?1", Status.ATIVO).fetch();
 		} else {
-			animaisList = Animal.find("(lower(nome) like ?1 OR tipoAnimal like ?2)",
-					"%" + termo.toLowerCase() + "%",
-					"%" + termo.toLowerCase() + "%").fetch();
+			
+			animaisList = Animal.find("(lower(nome) like ?1 )",
+					"%" + termo.toLowerCase() + "%"
+					).fetch();
 		}
 		render(animaisList, termo);
   
