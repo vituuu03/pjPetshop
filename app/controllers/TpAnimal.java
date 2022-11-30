@@ -3,7 +3,7 @@ import play.*;
 import play.mvc.*;
 import models.Animal;
 import java.util.*;
-
+import play.mvc.Controller;
 import models.*;
 public class TpAnimal extends Controller{
     public static void TipoAnimalForm(){
@@ -16,7 +16,10 @@ public class TpAnimal extends Controller{
 	}
 
     public static void TipoAnimalList (){
-        String termo = params.get("termo");
+       
+		//List <TipoAnimal> tpAnimalList = TipoAnimal.findAll();
+		//render(tpAnimalList);
+		String termo = params.get("termo");
 		
 		List<TipoAnimal> tpsAnimal = Collections.EMPTY_LIST;
 		if (termo == null || termo.isEmpty()) {
@@ -26,9 +29,6 @@ public class TpAnimal extends Controller{
 					"%" + termo.toLowerCase() + "%").fetch();
 		}
 		render(tpsAnimal, termo);
-  
-  
-  
     }
     
     public static void editar(Long id) {
