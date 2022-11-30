@@ -3,7 +3,7 @@
 
 <h1>Cadastro de Animais</h1>
 <form action="@{Animais.salvar}" method="post">
-	<input type="hidden" name="a.id" value="${animal?.id}">
+	<input type="hidden" name="a.id" value="${animalEdit?.id}">
 	
 	<label class="form-label">Nome:</label>
 	<input type="text" name="a.nome" class="form-control" value="${animalEdit?.nome}" />
@@ -15,9 +15,9 @@
 	
 	<label class="form-label">Tipo de animal:</label>
 	<select name="a.tipoAnimal.id" class="form-select">
-		#{list items:tpAnimais, as:'t'}
+		#{list items:tipos, as:'t'}
 		<!--if se  t ? 'editar':'Cadastrar-->
-			<option value="${t.id}" ${t.id == Animal?.tipoAnimal?.id ? 'selected' : ''}>${t.descricao}</option>
+			<option value="${t.id}" ${t.id == animal?.tipoAnimal?.id ? 'selected' : ''}>${t.descricao}</option>
 		#{/list}
 	</select>
 	
@@ -28,5 +28,5 @@
 	<br />
 	<!--se já existir no bando de dados -> atualizar informações-->
 	<!--caso não existir -> Cadastrar novo animal-->
-	<input type="submit" class="btn btn-primary" value="${animalEdit ? 'Atualizar informações':'Cadastrar Animal'>
+	<input type="submit" class="btn btn-primary">
 </form>
