@@ -38,7 +38,7 @@
       		<td><a href="@{Animais.detalhar(x.id)}">${x.nome}</a></td>
       		<td>${x.peso}</td>
             <td>${x.dataNascimento ? x.dataNascimento.format('dd/MM/yyyy') : ''}</td>
-            <td><a href="@{TpAnimal.detalharTipo(x.id)}">${x.tipoAnimal}</a></td>
+            <td><a href="@{TpAnimal.detalharTipo(x.tipoAnimal.id)}">${x.tipoAnimal.descricao}</a></td>
       		<td>
 
 				<a href="@{Animais.editar(x.id)}" class="btn btn-warning btn-sm">Editar</a>

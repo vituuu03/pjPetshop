@@ -15,7 +15,7 @@ public class TpAnimal extends Controller{
          
 	}
 
-    public static void listar (){
+    public static void TipoAnimalList (){
         String termo = params.get("termo");
 		
 		List<TipoAnimal> tpsAnimal = Collections.EMPTY_LIST;
@@ -39,35 +39,31 @@ public class TpAnimal extends Controller{
     public static void remover (long id){
         TipoAnimal tpAnimalDelete = TipoAnimal.findById(id);
         tpAnimalDelete.delete();
-       listar();
+       TipoAnimalList();
         
     }
     
     public static void detalharTipo(Long id) {
 		TipoAnimal a = TipoAnimal.findById(id);
 		
-        boolean achouIgual = false;
-			List<Animal> animaisTp = Animal.findAll();
-			for (int i = 0; i < animaisTp.size(); i++) {
-				Animal aniTp = animaisTp.get(i);
-				// Se já estiver cadastrado, não é possível salvar
-				if (Animal.tipoAnimal.equals(aniTp.tipoAnimal.equals(a.nome))) {
-					achouIgual = true;
-					
-                    String termo = params.get("termo");
+        String termo = params.get("termo");
 		
-                    List<TipoAnimal> tpsAnimal = Collections.EMPTY_LIST;
-                    if (termo == null || termo.isEmpty()) {
-                        tpsAnimal = TipoAnimal.findAll();
-                    } else {
-                        tpsAnimal = TipoAnimal.find("(lower(descricao) like ?1)",
-                                "%" + termo.toLowerCase() + "%").fetch();
-                    }
-                    render(a, tpsAnimal);
+		List<Animal> animaisList = Collections.EMPTY_LIST;
+		if (termo == null || termo.isEmpty()) {
+			animaisList = Animal.find("status = ?1", Status.ATIVO).fetch();
+		} else {
+			
+			animaisList = Animal.find("(lower(nome) like ?1 )",
+					"%" + termo.toLowerCase() + "%"
+					).fetch();
+		}
+		render(animaisList, termo, a);
+        
+                    
 
-				}
+				
                 
-            }
+            
         
         
         

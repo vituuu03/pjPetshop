@@ -14,7 +14,8 @@
 	<label class="form-label">Tipo de animal:</label>
 	<select name="a.tipoAnimal.id" class="form-select">
 		#{list items:tpAnimais, as:'t'}
-			<option value="${t.id}" ${t.id == Animal?.tipoAnimal?.id ? 'selected' : ''}>${t}</option>
+		<!--if se  t ? 'editar':'Cadastrar-->
+			<option value="${t.id}" ${t.id == Animal?.tipoAnimal?.id ? 'selected' : ''}>${t.descricao}</option>
 		#{/list}
 	</select>
 	<br />

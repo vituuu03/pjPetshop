@@ -3,7 +3,7 @@
 
 <h1>Listagem de tipos</h1>
 
-<form action="@{TpAnimal.listar}">
+<form action="@{TpAnimal.TipoAnimalList}">
 	<div class="row">
 		<div class="col-12">
 			<label class="form-label">Termo de busca:</label>
@@ -32,8 +32,8 @@
 	<tbody>
 		#{list items:tpsAnimal, as:'x'}
 		<tr>
-            <td><a href="@{TpAnimal.detalhar(x.id)}">${x.nome}</a></td>
-      		<td>${x.nome}</td>
+            <td><a href="@{TpAnimal.detalharTipo(x.id)}">${x.descricao}</a></td>
+      		
       		<td>
 
 				<a href="@{TpAnimal.editar(x.id)}" class="btn btn-warning btn-sm">Editar</a>
@@ -45,4 +45,4 @@
 </table>
 
 
-<a href="@{TpAnimal.form}" class="btn btn-primary">Novo Tipo de Animal</a>
+<a href="@{TpAnimal.TipoAnimalForm}" class="btn btn-primary">Novo Tipo de Animal</a>

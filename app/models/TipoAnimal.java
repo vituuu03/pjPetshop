@@ -9,5 +9,4 @@ public class TipoAnimal extends Model{
     
 	public String descricao;
 	
-
 }
