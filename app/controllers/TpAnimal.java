@@ -22,8 +22,7 @@ public class TpAnimal extends Controller{
 		if (termo == null || termo.isEmpty()) {
 			tpsAnimal = TipoAnimal.findAll();
 		} else {
-			tpsAnimal = TipoAnimal.find("(lower(nome) like ?1 OR descricao like ?2)",
-					"%" + termo.toLowerCase() + "%",
+			tpsAnimal = TipoAnimal.find("(lower(descricao) like ?1)",
 					"%" + termo.toLowerCase() + "%").fetch();
 		}
 		render(tpsAnimal, termo);
@@ -61,8 +60,7 @@ public class TpAnimal extends Controller{
                     if (termo == null || termo.isEmpty()) {
                         tpsAnimal = TipoAnimal.findAll();
                     } else {
-                        tpsAnimal = TipoAnimal.find("(lower(nome) like ?1 OR descricao like ?2)",
-                                "%" + termo.toLowerCase() + "%",
+                        tpsAnimal = TipoAnimal.find("(lower(descricao) like ?1)",
                                 "%" + termo.toLowerCase() + "%").fetch();
                     }
                     render(a, tpsAnimal);
